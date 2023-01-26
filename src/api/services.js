@@ -1,10 +1,10 @@
-const BASE_URL = "https://api.openweathermap.org"
+const BASE_URL = 'https://api.openweathermap.org'
 
 export async function get5DaysForecast({ lat, lon }) {
-  let requestOptions = {
+  const requestOptions = {
     method: 'GET',
     redirect: 'follow'
-  };
+  }
 
   try {
     const response = await fetch(`${BASE_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric`, requestOptions)
@@ -17,10 +17,10 @@ export async function get5DaysForecast({ lat, lon }) {
 }
 
 export async function getCurrentWeather({ lat, lon }) {
-  let requestOptions = {
+  const requestOptions = {
     method: 'GET',
     redirect: 'follow'
-  };
+  }
 
   try {
     const response = await fetch(`${BASE_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric`, requestOptions)
@@ -33,10 +33,10 @@ export async function getCurrentWeather({ lat, lon }) {
 }
 
 export async function getCoordinatesByLocationName({ locationName }) {
-  let requestOptions = {
+  const requestOptions = {
     method: 'GET',
     redirect: 'follow'
-  };
+  }
 
   try {
     const response = await fetch(`${BASE_URL}/geo/1.0/direct?q=${locationName}&limit=5&appid=${import.meta.env.VITE_API_KEY}`, requestOptions)
