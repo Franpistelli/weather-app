@@ -4,8 +4,6 @@ import WeatherCard from './components/WeatherCard'
 import { get5DaysForecast, getCurrentWeather, getCoordinatesByLocationName } from './api/services'
 import CurrentWeatherSection from './components/CurrentWeatherSection';
 
-// The app will use this API https://www.weatherapi.com/
-
 function App() {
 
   const [position, setposition] = useState(null)
@@ -23,7 +21,7 @@ function App() {
         ])
         setcurrentWeather(today)
         setfiveDayForecast(forecast)
-        console.log('responses', responses)
+        console.log('response', [today, forecast])
       }
     }
     fetchData();

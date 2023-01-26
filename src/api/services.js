@@ -1,5 +1,4 @@
 const BASE_URL = "https://api.openweathermap.org"
-const API_KEY = "ba3aa793a141a749d9c7fa9931ceba64"
 
 export async function get5DaysForecast({ lat, lon }) {
   let requestOptions = {
@@ -8,7 +7,7 @@ export async function get5DaysForecast({ lat, lon }) {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`, requestOptions)
+    const response = await fetch(`${BASE_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric`, requestOptions)
     const result = await response.json()
     return result
   } catch (e) {
@@ -24,7 +23,7 @@ export async function getCurrentWeather({ lat, lon }) {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`, requestOptions)
+    const response = await fetch(`${BASE_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric`, requestOptions)
     const result = await response.json()
     return result
   } catch (e) {
@@ -40,7 +39,7 @@ export async function getCoordinatesByLocationName({ locationName }) {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/geo/1.0/direct?q=${locationName}&limit=5&appid=${API_KEY}`, requestOptions)
+    const response = await fetch(`${BASE_URL}/geo/1.0/direct?q=${locationName}&limit=5&appid=${import.meta.env.VITE_API_KEY}`, requestOptions)
     const result = await response.json()
     return result
   } catch (e) {
