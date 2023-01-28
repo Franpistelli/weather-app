@@ -6,7 +6,9 @@ import CurrentWeatherSection from './components/CurrentWeatherSection'
 
 function App() {
   const [position, setposition] = useState(null)
+  // eslint-disable-next-line no-unused-vars
   const [currentWeather, setcurrentWeather] = useState(null)
+  // eslint-disable-next-line no-unused-vars
   const [fiveDayForecast, setfiveDayForecast] = useState(null)
 
   useEffect(() => {
@@ -45,7 +47,7 @@ function App() {
         </div>
 
         <div className='flex w-full h-48 gap-6 flex-col'>
-          <h2 className='text-principal-text text-3xl'>Today’s Hightlights</h2>
+          <h2 className='text-principal-text text-3xl font-raleway'>Today’s Hightlights</h2>
           <div className='flex flex-row flex-wrap gap-4'>
             <TodayHighlightsCard />
             <TodayHighlightsCard />
