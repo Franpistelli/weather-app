@@ -57,9 +57,11 @@ function App() {
         <div className='flex gap-6 flex-wrap justify-center items-center p-0 xl:p-5 xl:justify-between'>
           <TodayHighlightsCard />
           <TodayHighlightsCard />
+          <TodayHighlightsCard />
+          <TodayHighlightsCard />
         </div>
 
-        <p className='font-raleway text-slate-700 font-bold text-base'>created by Franco Pistelli 💌 - devChallenges.io</p>
+        <p className='font-raleway text-slate-700 font-bold text-base text-center mt-2'>created by <a href='https://github.com/francopistelli'>Franco Pistelli</a> 💌 - devChallenges.io</p>
 
       </div>
     </div>
