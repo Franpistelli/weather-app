@@ -16,6 +16,9 @@ module.exports = {
     },
     fontFamily: {
       raleway: ['raleway', 'sans-serif']
+    },
+    backgroundImage: {
+      'cloud-pattern': "url('/src/assets/Cloud-background.png')"
     }
   },
   plugins: []

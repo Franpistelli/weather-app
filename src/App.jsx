@@ -28,17 +28,24 @@ function App() {
   }, [position])
 
   return (
-    <div className='flex box-border h-[100vh] w-full flex-col xl:flex-row'>
+    <div className='flex justify-between flex-col xl:flex-row'>
 
       {/* First section */}
-      <div className='flex grow-[1] shrink bg-principal flex-col items-center p-4'>
+      <div className='flex w-full h-screen bg-principal flex-col px-8 py-5 box-border justify-around items-center
+      xl:w-[38%]
+      after:bg-cloud-pattern after:absolute after:w-full after:h-4/6 after:bg-no-repeat after:bg-top after:top-1/3 after:opacity-5'
+      >
         <CurrentWeatherSection setposition={setposition} />
       </div>
 
       {/* second section */}
-      <div className='flex flex-col grow-[1] bg-principal-dark p-8 gap-y-12 flex-wrap justify-center items-center'>
+      <div className='m-0 w-full box-border bg-principal-dark p-8 xl:w-3/4 xl:h-screen xl:px-24 xl:overflow-y-auto'>
+        <div className='hidden justify-end p-3 xl:flex'>
+          <button className='font-raleway font-bold p-4 text-white bg-slate-600 cursor-pointer m-2 rounded-[50%]'>°C</button>
+          <button className='font-raleway font-bold p-4 text-white bg-slate-600 cursor-pointer m-2 rounded-[50%]'>°F</button>
+        </div>
 
-        <div className='flex w-full h-48 gap-6 flex-wrap'>
+        <div className='flex gap-6 flex-wrap justify-center items-center p-0 xl:p-5 xl:justify-between'>
           <WeatherCard />
           <WeatherCard />
           <WeatherCard />
@@ -46,14 +53,13 @@ function App() {
           <WeatherCard />
         </div>
 
-        <div className='flex w-full h-48 gap-6 flex-col'>
-          <h2 className='text-principal-text text-3xl font-raleway'>Today’s Hightlights</h2>
-          <div className='flex flex-row flex-wrap gap-4'>
-            <TodayHighlightsCard />
-            <TodayHighlightsCard />
-          </div>
-
+        <h2 className='text-principal-text text-3xl font-raleway p-0 my-4 xl:p-8 xl:my-0'>Today’s Hightlights</h2>
+        <div className='flex gap-6 flex-wrap justify-center items-center p-0 xl:p-5 xl:justify-between'>
+          <TodayHighlightsCard />
+          <TodayHighlightsCard />
         </div>
+
+        <p className='font-raleway text-slate-700 font-bold text-base'>created by Franco Pistelli 💌 - devChallenges.io</p>
 
       </div>
     </div>
