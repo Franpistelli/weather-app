@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import TodayHighlightsCard from './components/TodayHighlightsCard'
-import WeatherCard from './components/WeatherCard'
 import { get5DaysForecast, getCurrentWeather } from './api/services'
-import CurrentWeatherSection from './components/CurrentWeatherSection'
+import { LeftContent } from './LeftContent'
+import { MainContent } from './MainContent'
 
 function App() {
-  const [position, setposition] = useState(null)
-  // eslint-disable-next-line no-unused-vars
+  const [position, setposition] = useState({ latitude: -31.4173391, longitude: -64.183319 })
   const [currentWeather, setcurrentWeather] = useState(null)
-  // eslint-disable-next-line no-unused-vars
   const [fiveDayForecast, setfiveDayForecast] = useState(null)
+  const [selectedUnit, setselectedUnit] = useState('c')
 
   useEffect(() => {
     async function fetchData() {
@@ -21,7 +19,6 @@ function App() {
         ])
         setcurrentWeather(today)
         setfiveDayForecast(forecast)
-        console.log('response', [today, forecast])
       }
     }
     fetchData()
@@ -29,41 +26,8 @@ function App() {
 
   return (
     <div className='flex justify-between flex-col xl:flex-row'>
-
-      {/* First section */}
-      <div className='flex w-full h-screen bg-principal flex-col px-8 py-5 box-border justify-around items-center
-      xl:w-[38%]
-      after:bg-cloud-pattern after:absolute after:w-full after:h-4/6 after:bg-no-repeat after:bg-top after:top-1/3 after:opacity-5'
-      >
-        <CurrentWeatherSection setposition={setposition} />
-      </div>
-
-      {/* second section */}
-      <div className='m-0 w-full box-border bg-principal-dark p-8 xl:w-3/4 xl:h-screen xl:px-24 xl:overflow-y-auto'>
-        <div className='hidden justify-end p-3 xl:flex'>
-          <button className='font-raleway font-bold p-4 text-white bg-slate-600 cursor-pointer m-2 rounded-[50%]'>°C</button>
-          <button className='font-raleway font-bold p-4 text-white bg-slate-600 cursor-pointer m-2 rounded-[50%]'>°F</button>
-        </div>
-
-        <div className='flex gap-6 flex-wrap justify-center items-center p-0 xl:p-5 xl:justify-between'>
-          <WeatherCard />
-          <WeatherCard />
-          <WeatherCard />
-          <WeatherCard />
-          <WeatherCard />
-        </div>
-
-        <h2 className='text-principal-text text-3xl font-raleway p-0 my-4 xl:p-8 xl:my-0'>Today’s Hightlights</h2>
-        <div className='flex gap-6 flex-wrap justify-center items-center p-0 xl:p-5 xl:justify-between'>
-          <TodayHighlightsCard />
-          <TodayHighlightsCard />
-          <TodayHighlightsCard />
-          <TodayHighlightsCard />
-        </div>
-
-        <p className='font-raleway text-slate-700 font-bold text-base text-center mt-2'>created by <a href='https://github.com/francopistelli'>Franco Pistelli</a> 💌 - devChallenges.io</p>
-
-      </div>
+      <LeftContent setposition={setposition} currentWeather={currentWeather} selectedUnit={selectedUnit} />
+      <MainContent fiveDayForecast={fiveDayForecast} currentWeather={currentWeather} selectedUnit={selectedUnit} setselectedUnit={setselectedUnit} />
     </div>
   )
 }

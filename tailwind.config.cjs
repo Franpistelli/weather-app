@@ -11,7 +11,7 @@ module.exports = {
         'principal-dark': '#100E1D',
         'principal-text': '#E7E7EB',
         'principal-medium-text': '#A09FB1',
-        'principal-dark-text': '##88869D'
+        'principal-dark-text': '#88869D'
       }
     },
     fontFamily: {
