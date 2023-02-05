@@ -3,7 +3,7 @@ import WeatherCard from './components/WeatherCard'
 
 export const MainContent = ({ fiveDayForecast, currentWeather, selectedUnit, setselectedUnit }) => {
   return (
-    <div className='m-0 w-full box-border bg-principal-dark p-8 xl:w-3/4 xl:h-screen lg:px-24 xl:px-40 xl:overflow-y-auto'>
+    <div className='m-0 w-full box-border bg-principal-dark px-8 py-4 xl:w-3/4 xl:h-screen lg:px-24 xl:px-40 xl:py-0 xl:overflow-y-auto'>
       {currentWeather &&
         <>
           <div className='hidden justify-end p-3 xl:flex'>
@@ -22,9 +22,9 @@ export const MainContent = ({ fiveDayForecast, currentWeather, selectedUnit, set
           </div>
           <h2 className='text-principal-text font-bold text-2xl font-raleway p-0 my-4 xl:p-8 xl:my-0'>Today’s Hightlights</h2>
           <div className='flex gap-6 flex-wrap justify-center items-center p-0 xl:p-5 xl:justify-between'>
-            <TodayHighlightsCard name='Wind status' value={currentWeather.wind.speed} unit='m/s' />
-            <TodayHighlightsCard name='Humidity' value={currentWeather.main.humidity} unit='%' />
-            <TodayHighlightsCard name='Visibility' value={currentWeather.visibility} unit='miles' />
+            <TodayHighlightsCard name='Wind status' value={currentWeather.wind.speed} unit='m/s' type='wind' extraData={currentWeather.wind} />
+            <TodayHighlightsCard name='Humidity' value={currentWeather.main.humidity} unit='%' type='humidity' />
+            <TodayHighlightsCard name='Visibility' value={currentWeather.visibility} unit='Km' />
             <TodayHighlightsCard name='Air Pressure' value={currentWeather.main.pressure} unit='hPa' />
           </div>
 
